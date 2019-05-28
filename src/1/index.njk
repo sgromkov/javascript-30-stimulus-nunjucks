@@ -2,7 +2,7 @@
 {% extends '../layout.njk' %}
 
 {% block styles %}
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="index.css">
 {% endblock %}
 
 {% block content %}
@@ -22,7 +22,7 @@
         </div>
 
         {% for key in keys %}
-            <audio src="{{ key.sound }}.wav"
+            <audio src="sounds/{{ key.sound }}.wav"
                 data-drum-kit-key="{{ key.value }}"
                 data-target="drum-kit.audio"
             ></audio>
@@ -31,5 +31,5 @@
 {% endblock %}
 
 {% block scripts %}
-    <script src="main.js"></script>
+    <script src="index.js"></script>
 {% endblock %}
