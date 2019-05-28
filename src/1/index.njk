@@ -1,0 +1,35 @@
+{% set title = 'JS Drum Kit' %}
+{% extends '../layout.njk' %}
+
+{% block styles %}
+    <link rel="stylesheet" href="main.css">
+{% endblock %}
+
+{% block content %}
+
+    <div data-controller="drum-kit" data-action="keydown@window->drum-kit#playSound">
+        <div class="keys">
+            {% for key in keys %}
+                <div class="key"
+                    data-drum-kit-key="{{ key.value }}"
+                    data-target="drum-kit.button"
+                    data-action="transitionend->drum-kit#removeTransition click->drum-kit#playSound"
+                >
+                    <kbd>{{ key.name }}</kbd>
+                    <span class="sound">{{ key.sound }}</span>
+                </div>
+            {% endfor %}
+        </div>
+
+        {% for key in keys %}
+            <audio src="{{ key.sound }}.wav"
+                data-drum-kit-key="{{ key.value }}"
+                data-target="drum-kit.audio"
+            ></audio>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="main.js"></script>
+{% endblock %}

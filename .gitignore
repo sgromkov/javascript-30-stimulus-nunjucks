@@ -1,0 +1,31 @@
+/node_modules/
+/dist/
+
+###> OS ###
+# OS
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+._*
+###< OS ###
+
+###> Editors ###
+*~
+*.swp
+*.tmproj
+*.tmproject
+*.sublime-*
+.idea/
+.project/
+.settings/
+.vscode/
+###< Editors ###
+
+###> Logs ###
+logs
+*.log
+npm-debug.log
+npm-debug.log*
+yarn-error.log
+###< Editors ###
