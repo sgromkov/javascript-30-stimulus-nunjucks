@@ -14,7 +14,7 @@ function module_exists(name) {
 
 var entryObject = glob.sync('./src/**/index.js').reduce(
     function (entries, entry) {
-        var matchForRename = /^\.\/src\/([\w\d_]+\/index)\.js$/g.exec(entry);
+        var matchForRename = /^\.\/src\/([\w\d-_ ]+\/index)\.js$/g.exec(entry);
         var volume = `${matchForRename[1]}/`;
 
         if (matchForRename !== null && typeof matchForRename[1] !== 'undefined') {
@@ -28,7 +28,7 @@ var entryObject = glob.sync('./src/**/index.js').reduce(
 
 var templateArray = glob.sync('./src/**/index.njk').reduce(
     function (templates, template) {
-        var matchForRename = /^\.\/src\/([\w\d_])+\/index\.njk$/g.exec(template);
+        var matchForRename = /^\.\/src\/([\w\d-_ ]+)\/index\.njk$/g.exec(template);
 
         if (matchForRename !== null && typeof matchForRename[1] !== 'undefined') {
             templates.push({
