@@ -1,0 +1,22 @@
+{% set title = 'JS + CSS Clock' %}
+{% extends '../layout.njk' %}
+
+{% block styles %}
+    <link rel="stylesheet" href="index.css">
+{% endblock %}
+
+{% block content %}
+
+    <div class="clock" data-controller="clock">
+        <div class="clock-face">
+            <div class="hand" data-target="clock.hourHand"></div>
+            <div class="hand" data-target="clock.minHand"></div>
+            <div class="hand" data-target="clock.secondHand"></div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+    <script src="index.js"></script>
+{% endblock %}
