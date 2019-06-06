@@ -1,0 +1,26 @@
+{% set title = 'Flex Panels 💪' %}
+{% extends '../layout.njk' %}
+
+{% block styles %}
+    <link rel="stylesheet" href="index.css">
+{% endblock %}
+
+{% block content %}
+    <div class="panels" data-controller="gallery">
+        {% for panel in panels %}
+            <div class="panel panel{{ loop.index }}"
+                data-target="gallery.panel"
+                data-gallery-index="{{ loop.index }}"
+                data-action="click->gallery#toggleOpen transitionend->gallery#toggleActive"
+            >
+                <p>{{ panel[0] }}</p>
+                <p>{{ panel[1] }}</p>
+                <p>{{ panel[2] }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="index.js"></script>
+{% endblock %}
